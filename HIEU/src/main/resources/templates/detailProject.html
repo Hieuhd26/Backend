@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chi tiết Project</title>
+</head>
+<body>
+<h1>Chi tiết Project</h1>
+
+<p><strong>ID:</strong> <span th:text="${project.id}"></span></p>
+<p><strong>Tên:</strong> <span th:text="${project.name}"></span></p>
+<p><strong>Học kỳ:</strong> <span th:text="${project.semester}"></span></p>
+<p><strong>Năm:</strong> <span th:text="${project.year}"></span></p>
+<p><strong>Khóa học:</strong> <span th:text="${project.course}"></span></p>
+<p><strong>Người dùng:</strong> <span th:text="${project.user.name}"></span></p>
+
+<h2>Danh sách ảnh</h2>
+<ul>
+    <li th:each="image : ${project.images}" th:text="${image.imageData}"></li>
+</ul>
+
+<h2>Danh sách sinh viên</h2>
+<ul>
+    <li th:each="student : ${project.students}">
+        <span th:text="${student.name}"></span> (<span th:text="${student.id}"></span>)
+    </li>
+</ul>
+
+<a href="/projects">Quay lại danh sách</a>
+</body>
+</html>
