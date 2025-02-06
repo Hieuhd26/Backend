@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>addProjectPage</title>
     <script type="text/javascript">
         // Thêm học sinh mới vào biểu mẫu
         function addStudent() {
@@ -36,9 +36,10 @@
     <p>Semester: <input type="text" th:field="*{semester}"/></p>
     <p>Year: <input type="text" th:field="*{year}"/></p>
     <p>Course: <input type="text" th:field="*{course}"/></p>
-    <p>User Upload: <input type="text" th:field="*{user}" readonly="readonly" th:value="${sessionName}"/></p>
+<!--    <p>User Upload: <input type="text" th:field="*{user}" readonly="readonly" th:value="${sessionName}"/></p>-->
+    <p>User Upload: <input type="text" th:field="*{user}" th:value="'Hiệu'" readonly="readonly" />
     <p>Images:
-        <input type="file" name="images" accept="image/*" multiple="multiple"/>
+    <input type="file" name="images[]" accept="image/*" multiple="multiple"/>
     </p>
     <div id="students-container">
 

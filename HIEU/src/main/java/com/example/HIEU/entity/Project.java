@@ -42,7 +42,7 @@ public class Project {
     @OneToMany(mappedBy = "project", cascade = {
             CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH
     }
-    //, fetch = FetchType.LAZY
+    , fetch = FetchType.LAZY
     )
     private List<Image> images;
 
@@ -52,7 +52,7 @@ public class Project {
     private User user;
 
     @ManyToMany(
-        //    fetch = FetchType.LAZY,
+            fetch = FetchType.LAZY,
             cascade = {
             CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH
     })

@@ -18,19 +18,9 @@ public class ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
-    public List<Project> getAllProjects() {
-        return projectRepository.findAll();
-    }
+    public void addProject(Project project, MultipartFile[] images, User user, List<Student> students) throws IOException {
 
-    public Project findById(Long id) {
-        return projectRepository.findById(id).orElseThrow(() -> new RuntimeException("Project not found"));
-    }
-
-    public void addProject(Project project, MultipartFile[] images, User user, List<Student> students) {
-        // Lưu thông tin dự án
-        try {
             project.setUser(user);
-
             // Thêm học sinh vào dự án
             project.setStudents(students);
 
@@ -48,8 +38,13 @@ public class ProjectService {
             project.setImages(imageList);
             // Lưu dự án và các ảnh vào cơ sở dữ liệu
             projectRepository.save(project);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    }
+
+    public List<Project> getAllProjects() {
+        return projectRepository.findAll();
+    }
+
+    public Project findById(Long id) {
+        return projectRepository.findById(id).orElseThrow(() -> new RuntimeException("Project not found"));
     }
 }

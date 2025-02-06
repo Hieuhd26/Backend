@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.apache.tomcat.util.codec.binary.Base64;
 
-import java.sql.Blob;
 
 @Entity
 @Table(name = "image")
@@ -24,7 +23,7 @@ public class Image {
     private String name;
 
     @Lob
-    @Column(name = "image_data",columnDefinition = "TEXT")
+    @Column(name = "image_data")
     private byte[] imageData;
 
     @ManyToOne(fetch = FetchType.LAZY)
